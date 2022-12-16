@@ -13,6 +13,7 @@ import software.amazon.awscdk.services.lambda.FunctionProps;
 import software.amazon.awscdk.services.lambda.Runtime;
 import software.amazon.awscdk.services.logs.RetentionDays;
 import software.amazon.awscdk.services.s3.assets.AssetOptions;
+import software.amazon.awscdk.services.sqs.Queue;
 import software.constructs.Construct;
 
 import java.util.Arrays;
@@ -59,7 +60,7 @@ public class LambdaUploadArchiveBancolombiaStack extends Stack {
                 .user("root")
                 .outputType(ARCHIVED);
 
-        Function bmiCalculatorFunction = new Function(this, "upload-archive-bancolombia", FunctionProps.builder()
+        Function uploadArchiveFunction = new Function(this, "upload-archive-bancolombia", FunctionProps.builder()
                 .functionName("upload-archive-bancolombia")
                 .runtime(Runtime.JAVA_11)
                 .code(Code.fromAsset("../", AssetOptions.builder().bundling(
@@ -78,7 +79,7 @@ public class LambdaUploadArchiveBancolombiaStack extends Stack {
 
         HttpLambdaIntegration httpLambdaIntegration = new HttpLambdaIntegration(
                 "this",
-                bmiCalculatorFunction,
+                uploadArchiveFunction,
                 HttpLambdaIntegrationProps.builder()
                         .payloadFormatVersion(PayloadFormatVersion.VERSION_2_0)
                         .build()
