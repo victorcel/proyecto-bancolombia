@@ -2,8 +2,8 @@
 <project xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd"
          xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
     <modelVersion>4.0.0</modelVersion>
-    <groupId>com.myorg</groupId>
-    <artifactId>lambda-upload-archive-bancolombia</artifactId>
+    <groupId>com.bancolombia</groupId>
+    <artifactId>infra-bancolombia</artifactId>
     <version>0.1</version>
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
@@ -27,7 +27,7 @@
                 <artifactId>exec-maven-plugin</artifactId>
                 <version>3.0.0</version>
                 <configuration>
-                    <mainClass>com.myorg.LambdaUploadArchiveBancolombiaApp</mainClass>
+                    <mainClass>com.bancolombia.LambdaUploadArchiveBancolombiaApp</mainClass>
                 </configuration>
             </plugin>
         </plugins>
@@ -50,6 +50,16 @@
           <artifactId>junit-jupiter</artifactId>
           <version>${junit.version}</version>
           <scope>test</scope>
+        </dependency>
+        <dependency>
+            <groupId>software.amazon.awscdk</groupId>
+            <artifactId>apigatewayv2-alpha</artifactId>
+            <version>${cdk.version}-alpha.0</version>
+        </dependency>
+        <dependency>
+            <groupId>software.amazon.awscdk</groupId>
+            <artifactId>apigatewayv2-integrations-alpha</artifactId>
+            <version>${cdk.version}-alpha.0</version>
         </dependency>
     </dependencies>
 </project>

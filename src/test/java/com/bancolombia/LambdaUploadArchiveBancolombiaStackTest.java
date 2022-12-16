@@ -1,8 +1,8 @@
-package com.myorg;
+package com.bancolombia;
 
 import software.amazon.awscdk.App;
 import software.amazon.awscdk.assertions.Template;
-import software.amazon.awscdk.assertions.Match;
+
 import java.io.IOException;
 
 import java.util.HashMap;

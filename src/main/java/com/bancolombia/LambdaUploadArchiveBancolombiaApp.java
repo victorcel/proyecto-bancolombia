@@ -1,4 +1,4 @@
-package com.myorg;
+package com.bancolombia;
 
 import software.amazon.awscdk.App;
 
